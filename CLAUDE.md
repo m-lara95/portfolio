@@ -4,9 +4,9 @@ Context for AI sessions. Read this first so I never have to re-explain the proje
 
 ## What this is (one line)
 
-A clean, genericized static portfolio site of my projects — a reference for manager updates and a
-quiet resume for moving onto an IT engineering team — fed by an on-demand `/portfolio` Claude Code
-skill that turns each project's `CLAUDE.md` into an approved entry.
+A clean, genericized static portfolio site of my projects — a status line for quick updates and an
+impact summary for each — fed by an on-demand `/portfolio` Claude Code skill that turns each
+project's `CLAUDE.md` into an approved entry.
 
 **Type:** Static site (Eleventy) + on-demand `/portfolio` authoring skill. Personal project.
 
@@ -26,9 +26,9 @@ skill that turns each project's `CLAUDE.md` into an approved entry.
   built, tech & skills, impact/outcome, my role, status. This is the *pitch* — proves I did it,
   not a copy-paste blueprint.
 - **Layer B — private learning log** (local-only, **git-ignored, NEVER published**): part-by-part
-  breakdown, key decisions & why, problems hit & how solved, what I learned. This is my
-  interview/1:1 cheat-sheet and my "don't give my work away for free" guard — the real *how* lives
-  here, off the public site.
+  breakdown, key decisions & why, problems hit & how solved, what I learned. This is my personal
+  reference so I can explain each project in depth, and my "don't give my work away for free" guard —
+  the real *how* lives here, off the public site.
 
 ### Everything is treated as "professional" (discreet by default)
 

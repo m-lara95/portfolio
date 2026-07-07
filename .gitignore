@@ -7,3 +7,6 @@ _site/
 # Private, LOCAL-ONLY — never published, never committed.
 # Holds the per-project learning logs and the never-publish list.
 private/
+
+# The original project brief — kept local, not published.
+KICKOFF.md
