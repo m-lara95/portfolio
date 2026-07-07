@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GitHub Team Access-Request Sync · Project Portfolio</title>
+    <link rel="stylesheet" href="/portfolio/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="site-title" href="/portfolio/">✦ Project Portfolio</a>
+      <p class="site-tagline">Things I've built — what they did, and how.</p>
+    </header>
+
+    <main><article class="project">
+  <a class="back" href="/portfolio/">← All projects</a>
+
+  <div class="project-head">
+    <span class="status status-shipped">Shipped</span>
+    <h1>GitHub Team Access-Request Sync</h1>
+    <p class="oneliner">Syncs every team in an org into an access-governance platform as self-service requestable permissions, with approvers auto-selected from HR org-chart data.</p>
+  </div>
+
+  
+  <div class="tags">
+    <span class="tag">Python 3.12</span><span class="tag">httpx (HTTP client)</span><span class="tag">GraphQL + REST APIs</span><span class="tag">CSV / HR-data parsing</span><span class="tag">Identity mapping (login → email → person)</span><span class="tag">Idempotent reconciliation</span><span class="tag">Dry-run / apply CLI</span><span class="tag">Hash-pinned dependencies + CI</span>
+  </div>
+  
+
+  <section><h2>The problem</h2><p>Access to hundreds of engineering teams&#39; resources was managed by hand, with no self-service way for people to request access and no consistent, defensible way to decide who should approve each request. Doing it manually across the whole org was slow, error-prone, and left no audit trail.
+</p></section>
+  <section><h2>What I built</h2><p>An on-demand command-line tool that reads live state from three read-only sources (team &amp; membership data, an HR org-chart export, and the identity provider), computes the desired access model, and reconciles only the difference into the access-governance platform — never blindly overwriting. It&#39;s dry-run by default: it prints the full planned change set and writes nothing unless an explicit &quot;apply&quot; flag is passed. Approvers are chosen by a two-phase algorithm driven by HR management-level titles — prefer the most senior in-band team members, otherwise climb the reporting chain to the nearest qualifying manager. Every write is logged to an audit record, and anything ambiguous is flagged for a human rather than guessed.
+</p></section>
+  <section><h2>Impact</h2><p>Rolled out to over a hundred teams in production. Re-runs are idempotent — a team already in sync reports &quot;no changes&quot; — and every run produces a full diff / drift report. Replaced manual, ad-hoc approver assignment with a repeatable, previewable, fully audited process; nothing reaches production without a human confirming the diff first.
+</p></section>
+  <section><h2>My role</h2><p>Sole designer and builder: live-API discovery, the identity-join design, the approver-selection algorithm, the idempotent reconcile/dry-run engine, and the safe apply path with audit logging.
+</p></section>
+
+  
+
+  
+</article>
+</main>
+
+    <footer class="site-footer">
+      <p>Built locally with Eleventy. Published deliberately.</p>
+    </footer>
+  </body>
+</html>
