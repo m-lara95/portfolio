@@ -1,0 +1,84 @@
+:root {
+  --bg: #fbf9f6;
+  --card: #ffffff;
+  --ink: #23201d;
+  --muted: #6b6560;
+  --accent: #4f6bed;
+  --accent-soft: #eef1fe;
+  --line: #eae5df;
+  --shipped: #1f9d63;
+  --shipped-bg: #e6f6ee;
+  --progress: #c77f16;
+  --progress-bg: #fbf0dc;
+  --maintained: #4f6bed;
+  --maintained-bg: #eef1fe;
+  --radius: 14px;
+  --wrap: 720px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+main, .site-header, .site-footer { max-width: var(--wrap); margin: 0 auto; padding: 0 1.25rem; }
+
+/* Header */
+.site-header { padding-top: 2.5rem; padding-bottom: 1rem; }
+.site-title {
+  font-size: 1.35rem; font-weight: 700; color: var(--ink);
+  text-decoration: none; letter-spacing: -0.01em;
+}
+.site-tagline { color: var(--muted); margin: 0.25rem 0 0; }
+
+/* Intro */
+.intro h1 { font-size: 2rem; letter-spacing: -0.02em; margin: 1.5rem 0 0.25rem; }
+.intro p { color: var(--muted); margin-top: 0; }
+
+/* Project list */
+.project-list { list-style: none; padding: 0; margin: 1.75rem 0; display: grid; gap: 1rem; }
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+}
+.card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(35, 32, 29, 0.08); border-color: #dcd6cf; }
+.card a { display: block; padding: 1.25rem 1.4rem; text-decoration: none; color: inherit; }
+.card h2 { margin: 0.6rem 0 0.35rem; font-size: 1.2rem; letter-spacing: -0.01em; }
+.card .oneliner { margin: 0 0 0.75rem; color: var(--muted); }
+.empty { color: var(--muted); padding: 1rem 0; }
+
+/* Status pill */
+.status {
+  display: inline-block; font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.04em; padding: 0.2rem 0.6rem; border-radius: 999px;
+}
+.status-shipped { color: var(--shipped); background: var(--shipped-bg); }
+.status-in-progress { color: var(--progress); background: var(--progress-bg); }
+.status-maintained { color: var(--maintained); background: var(--maintained-bg); }
+
+/* Tags */
+.tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tag {
+  font-size: 0.78rem; color: var(--accent); background: var(--accent-soft);
+  border-radius: 8px; padding: 0.15rem 0.55rem;
+}
+
+/* Project page */
+.back { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+.back:hover { color: var(--accent); }
+.project-head { margin: 1rem 0 1.5rem; }
+.project-head h1 { font-size: 2rem; letter-spacing: -0.02em; margin: 0.6rem 0 0.35rem; }
+.project-head .oneliner { color: var(--muted); font-size: 1.1rem; margin: 0; }
+.project section { margin: 1.75rem 0; }
+.project h2 { font-size: 1.05rem; margin: 0 0 0.35rem; }
+.project section p { margin: 0; }
+.project .tags { margin-bottom: 0.5rem; }
+
+/* Footer */
+.site-footer { margin: 3rem auto 2rem; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--line); padding-top: 1.25rem; }

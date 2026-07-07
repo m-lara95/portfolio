@@ -1,0 +1,16 @@
+# Never-publish list — TEMPLATE (this .example file is safe to commit)
+#
+# Copy this to: private/never-publish-list.txt   (that real copy is git-ignored
+# and never published). Put one term per line. Lines starting with # and blank
+# lines are ignored. Matching is case-insensitive.
+#
+# List the things that must NEVER appear on the public site:
+#   - company / employer names
+#   - client and vendor names
+#   - internal tool / system / project code names
+#   - anything else that would identify a workplace
+#
+# Examples (delete these, add your own in the real file):
+# Acme Corp
+# Globex
+# ProjectNightingale

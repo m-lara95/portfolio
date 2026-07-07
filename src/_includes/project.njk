@@ -1,0 +1,29 @@
+---
+layout: base.njk
+---
+<article class="project">
+  <a class="back" href="/">← All projects</a>
+
+  <div class="project-head">
+    <span class="status status-{{ status | lower | replace(' ', '-') }}">{{ status }}</span>
+    <h1>{{ title }}</h1>
+    <p class="oneliner">{{ oneliner }}</p>
+  </div>
+
+  {% if tech %}
+  <div class="tags">
+    {% for t in tech %}<span class="tag">{{ t }}</span>{% endfor %}
+  </div>
+  {% endif %}
+
+  {% if problem %}<section><h2>The problem</h2><p>{{ problem }}</p></section>{% endif %}
+  {% if built %}<section><h2>What I built</h2><p>{{ built }}</p></section>{% endif %}
+  {% if impact %}<section><h2>Impact</h2><p>{{ impact }}</p></section>{% endif %}
+  {% if role %}<section><h2>My role</h2><p>{{ role }}</p></section>{% endif %}
+
+  {% if link %}
+  <section><h2>Link</h2><p><a href="{{ link }}" rel="noopener">{{ link }}</a></p></section>
+  {% endif %}
+
+  {{ content | safe }}
+</article>

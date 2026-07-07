@@ -1,0 +1,9 @@
+# Dependencies (restored from package-lock.json — never committed)
+node_modules/
+
+# Built site (generated; only source is committed)
+_site/
+
+# Private, LOCAL-ONLY — never published, never committed.
+# Holds the per-project learning logs and the never-publish list.
+private/

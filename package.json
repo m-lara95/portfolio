@@ -1,0 +1,13 @@
+{
+  "name": "portfolio",
+  "version": "0.1.0",
+  "description": "A clean, genericized static portfolio site of my projects.",
+  "private": true,
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

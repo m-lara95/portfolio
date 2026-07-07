@@ -1,0 +1,26 @@
+---
+layout: base.njk
+---
+<section class="intro">
+  <h1>My projects</h1>
+  <p>A running record of things I've built — each with a quick status and an honest summary.</p>
+</section>
+
+<ul class="project-list">
+  {% for p in collections.projects %}
+  <li class="card">
+    <a href="{{ p.url }}">
+      <span class="status status-{{ p.data.status | lower | replace(' ', '-') }}">{{ p.data.status }}</span>
+      <h2>{{ p.data.title }}</h2>
+      <p class="oneliner">{{ p.data.oneliner }}</p>
+      {% if p.data.tech %}
+      <div class="tags">
+        {% for t in p.data.tech %}<span class="tag">{{ t }}</span>{% endfor %}
+      </div>
+      {% endif %}
+    </a>
+  </li>
+  {% else %}
+  <li class="empty">No projects yet — add one with the <code>/portfolio</code> skill.</li>
+  {% endfor %}
+</ul>
