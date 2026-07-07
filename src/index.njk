@@ -9,7 +9,7 @@ layout: base.njk
 <ul class="project-list">
   {% for p in collections.projects %}
   <li class="card">
-    <a href="{{ p.url }}">
+    <a href="{{ p.url | url }}">
       <span class="status status-{{ p.data.status | lower | replace(' ', '-') }}">{{ p.data.status }}</span>
       <h2>{{ p.data.title }}</h2>
       <p class="oneliner">{{ p.data.oneliner }}</p>

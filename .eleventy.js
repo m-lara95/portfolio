@@ -15,6 +15,10 @@ module.exports = function (eleventyConfig) {
   );
 
   return {
+    // The site is served from the /portfolio/ subfolder on GitHub Pages.
+    // The `url` filter below uses this to build correct links. If you ever
+    // move to a custom domain served at the root, change this to "/".
+    pathPrefix: "/portfolio/",
     dir: {
       input: "src",
       includes: "_includes",

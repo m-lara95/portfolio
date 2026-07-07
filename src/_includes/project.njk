@@ -2,7 +2,7 @@
 layout: base.njk
 ---
 <article class="project">
-  <a class="back" href="/">← All projects</a>
+  <a class="back" href="{{ '/' | url }}">← All projects</a>
 
   <div class="project-head">
     <span class="status status-{{ status | lower | replace(' ', '-') }}">{{ status }}</span>

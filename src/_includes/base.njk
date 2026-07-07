@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{% if title %}{{ title }} · {% endif %}Project Portfolio</title>
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="{{ '/styles.css' | url }}" />
   </head>
   <body>
     <header class="site-header">
-      <a class="site-title" href="/">✦ Project Portfolio</a>
+      <a class="site-title" href="{{ '/' | url }}">✦ Project Portfolio</a>
       <p class="site-tagline">Things I've built — what they did, and how.</p>
     </header>
 
