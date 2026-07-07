@@ -85,7 +85,14 @@ _(A running glossary — only general, transferable concepts, one line each. Ski
 identifiers and one-offs. I can run `/generator` and say "update what I learned" to fold these into
 my personal glossary.)_
 
-- _(none yet)_
+- **GitHub Pages** — free hosting that serves a website straight from a GitHub repo.
+- **Path prefix** — telling a site it lives in a subfolder (e.g. `/portfolio/`) so its
+  internal links to CSS/pages resolve correctly instead of pointing at the root.
+- **Pre-commit hook** — a script git runs automatically *before* saving a commit; used
+  here to block commits that contain secrets or private files.
+- **Commit identity / no-reply email** — git stamps a name + email into every commit
+  (public once pushed); a GitHub `@users.noreply.github.com` address keeps your real
+  email private.
 
 ## Conventions (from the brief)
 
@@ -100,17 +107,21 @@ my personal glossary.)_
 
 ## Status
 
-- **2026-07-07** — Planning complete; decisions locked (above). Step 1 (this `CLAUDE.md`) in
-  progress. Not yet started: site skeleton, `/portfolio` skill, publishing, repo hygiene/CI.
+- **2026-07-07** — Build complete through Step 5. Site is **live** at
+  https://m-lara95.github.io/portfolio/ with one real entry (this portfolio project itself).
+  Repo: https://github.com/m-lara95/portfolio (public). Publish flow: build → `docs/` → commit
+  (pre-commit hooks run) → push (Pages redeploys from `main` /docs).
+  **Pending / optional:** GitHub Actions CI pinned to SHAs (build + scans on PRs) was deferred —
+  the branch-deploy from `docs/` works without it. Add more project entries via `/portfolio`.
 
 ### Build checklist
 
-1. [ ] `CLAUDE.md` capturing locked decisions ← current step
-2. [ ] Eleventy site skeleton + one hand-written sample entry (viewable locally)
-3. [ ] `/portfolio` skill (draft → flag identifying lines → approval → write; never-publish scan;
-   per-entry link prompt)
-4. [ ] Publish to GitHub Pages (one entry as small-batch proof; walk me through each click)
-5. [ ] Repo hygiene / CI (README, CONTRIBUTING, pre-commit hooks, pinned CI)
+1. [x] `CLAUDE.md` capturing locked decisions
+2. [x] Eleventy site skeleton (built into `docs/`, `pathPrefix: /portfolio/`)
+3. [x] `/portfolio` skill (global at `~/.claude/skills/portfolio/`) + never-publish scan
+4. [x] Published to GitHub Pages (personal account, one entry as small-batch proof)
+5. [x] Repo hygiene (README, CONTRIBUTING, pre-commit hooks: secret + never-publish scans)
+6. [ ] (Optional) GitHub Actions CI pinned to SHAs
 
 ## Keeping this current
 
