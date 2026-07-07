@@ -5,7 +5,9 @@
   "private": true,
   "scripts": {
     "start": "eleventy --serve",
-    "build": "eleventy"
+    "build": "eleventy",
+    "scan": "node scripts/scan.mjs",
+    "secret-scan": "node scripts/secret-scan.mjs"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0"

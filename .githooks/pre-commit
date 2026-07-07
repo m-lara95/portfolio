@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+# Shared pre-commit hook (version-controlled).
+# Activate once per clone with:  git config core.hooksPath .githooks
+#
+# Runs two safety checks before every commit:
+#   1. Secret scan   — no keys/tokens/passwords (or private/ files) in the commit.
+#   2. Never-publish  — no listed company/vendor terms in publishable content.
+
+set -e
+
+echo "pre-commit: secret scan…"
+node scripts/secret-scan.mjs
+
+echo "pre-commit: never-publish scan…"
+node scripts/scan.mjs
+
+echo "pre-commit: all checks passed."
