@@ -28,6 +28,20 @@ npm run build      # one-off build into docs/
 > If a shell proxy on your machine rewrites `npm run …`, call the binary
 > directly instead: `./node_modules/.bin/eleventy --serve`.
 
+## Set up on a new machine
+
+Clone the repo, then:
+
+```sh
+npm install                    # install Eleventy
+node scripts/install-skill.mjs # install the /portfolio skill globally for this machine
+git config core.hooksPath .githooks   # activate the pre-commit hook
+```
+
+`install-skill.mjs` copies the version-controlled skill from `skill/SKILL.md`
+into `~/.claude/skills/portfolio/`, filling in *this* clone's path automatically.
+Restart Claude Code afterward so it picks up `/portfolio`.
+
 ## Add or update a project
 
 Use the `/portfolio` Claude Code skill:

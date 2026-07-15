@@ -7,8 +7,14 @@ consistent. These notes are the "how to change it" guide.
 
 ```sh
 npm install                          # install Eleventy (pinned via lockfile)
+node scripts/install-skill.mjs       # install the /portfolio skill globally
 git config core.hooksPath .githooks  # activate the shared pre-commit hook
 ```
+
+The `/portfolio` skill is version-controlled at `skill/SKILL.md` (with a
+`__PORTFOLIO_REPO__` placeholder). `install-skill.mjs` copies it to
+`~/.claude/skills/portfolio/` with this machine's repo path filled in. Edit the
+skill at `skill/SKILL.md` and re-run the installer to update it.
 
 The pre-commit hook runs two checks on every commit:
 - **Secret scan** (`scripts/secret-scan.mjs`) — no keys/tokens/passwords, and
