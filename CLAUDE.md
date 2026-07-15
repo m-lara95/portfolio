@@ -93,6 +93,11 @@ my personal glossary.)_
 - **Commit identity / no-reply email** — git stamps a name + email into every commit
   (public once pushed); a GitHub `@users.noreply.github.com` address keeps your real
   email private.
+- **private_key_jwt / JWT client assertion** — proving a machine identity by signing a
+  short-lived token with a private key and trading it for an access token, instead of
+  using a long-lived static secret.
+- **Blast radius / privilege isolation** — deliberately keeping the untrusted-input-facing
+  identity separate from the powerful one, so a compromise of one can't reach the other.
 
 ## Conventions (from the brief)
 
