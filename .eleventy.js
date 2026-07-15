@@ -1,6 +1,7 @@
 module.exports = function (eleventyConfig) {
-  // Copy the stylesheet straight through to the built site.
+  // Copy the stylesheet and client-side JS straight through to the built site.
   eleventyConfig.addPassthroughCopy("src/styles.css");
+  eleventyConfig.addPassthroughCopy("src/js");
 
   // Emit an empty .nojekyll so GitHub Pages serves the files as-is
   // (skips its legacy Jekyll processing). Reproduced on every build.

@@ -8,42 +8,95 @@
   </head>
   <body>
     <header class="site-header">
-      <a class="site-title" href="/portfolio/">✦ Project Portfolio</a>
-      <p class="site-tagline">Things I've built — what they did, and how.</p>
+      <div class="brand">
+        <svg class="robot" viewBox="0 0 64 68" aria-hidden="true">
+          <!-- antenna -->
+          <line class="antenna-stem" x1="32" y1="4" x2="32" y2="14" />
+          <circle class="antenna" cx="32" cy="5" r="3.4" />
+          <!-- head -->
+          <rect class="head" x="10" y="14" width="44" height="36" rx="12" />
+          <!-- ears / bolts -->
+          <rect class="bolt" x="5" y="26" width="5" height="12" rx="2.5" />
+          <rect class="bolt" x="54" y="26" width="5" height="12" rx="2.5" />
+          <!-- eyes -->
+          <circle class="eye" cx="24" cy="30" r="4.2" />
+          <circle class="eye" cx="40" cy="30" r="4.2" />
+          <!-- mouth grille -->
+          <rect class="mouth" x="21" y="40" width="22" height="5" rx="2.5" />
+          <!-- neck + body hint -->
+          <rect class="neck" x="28" y="50" width="8" height="5" rx="2" />
+          <rect class="body" x="16" y="55" width="32" height="10" rx="5" />
+        </svg>
+        <div class="brand-text">
+          <a class="site-title" href="/portfolio/">Marco Lara<span class="title-dot">.</span></a>
+          <p class="site-tagline">Projects &amp; things I've built</p>
+        </div>
+      </div>
     </header>
 
-    <main><article class="project">
+    <main>
+<article class="project">
   <a class="back" href="/portfolio/">← All projects</a>
 
-  <div class="project-head">
+  
+<div class="entry">
+  <div class="entry-head">
     <span class="status status-shipped">Shipped</span>
-    <h1>GitHub Team Access-Request Sync</h1>
+    <h2 class="entry-title">GitHub Team Access-Request Sync</h2>
     <p class="oneliner">Syncs every team in an org into an access-governance platform as self-service requestable permissions, with approvers auto-selected from HR org-chart data.</p>
+    
+    <div class="tags">
+      <span class="tag">Python 3.12</span><span class="tag">httpx (HTTP client)</span><span class="tag">GraphQL + REST APIs</span><span class="tag">CSV / HR-data parsing</span><span class="tag">Identity mapping (login → email → person)</span><span class="tag">Idempotent reconciliation</span><span class="tag">Dry-run / apply CLI</span><span class="tag">Hash-pinned dependencies + CI</span>
+    </div>
+    
   </div>
 
   
-  <div class="tags">
-    <span class="tag">Python 3.12</span><span class="tag">httpx (HTTP client)</span><span class="tag">GraphQL + REST APIs</span><span class="tag">CSV / HR-data parsing</span><span class="tag">Identity mapping (login → email → person)</span><span class="tag">Idempotent reconciliation</span><span class="tag">Dry-run / apply CLI</span><span class="tag">Hash-pinned dependencies + CI</span>
+  <ol class="stepper">
+    <li class="step"><h3>The problem</h3><p>Access to hundreds of engineering teams&#39; resources was managed by hand, with no self-service way for people to request access and no consistent, defensible way to decide who should approve each request. Doing it manually across the whole org was slow, error-prone, and left no audit trail.
+</p></li>
+    <li class="step"><h3>What I built</h3><p>An on-demand command-line tool that reads live state from three read-only sources (team &amp; membership data, an HR org-chart export, and the identity provider), computes the desired access model, and reconciles only the difference into the access-governance platform — never blindly overwriting. It&#39;s dry-run by default: it prints the full planned change set and writes nothing unless an explicit &quot;apply&quot; flag is passed. Approvers are chosen by a two-phase algorithm driven by HR management-level titles — prefer the most senior in-band team members, otherwise climb the reporting chain to the nearest qualifying manager. Every write is logged to an audit record, and anything ambiguous is flagged for a human rather than guessed.
+</p></li>
+    <li class="step"><h3>Impact</h3><p>Rolled out to over a hundred teams in production. Re-runs are idempotent — a team already in sync reports &quot;no changes&quot; — and every run produces a full diff / drift report. Replaced manual, ad-hoc approver assignment with a repeatable, previewable, fully audited process; nothing reaches production without a human confirming the diff first.
+</p></li>
+  </ol>
+  
+
+  
+  <div class="entry-meta">
+    <div class="meta-row"><span class="meta-label">My role</span><span>Sole designer and builder: live-API discovery, the identity-join design, the approver-selection algorithm, the idempotent reconcile/dry-run engine, and the safe apply path with audit logging.
+</span></div>
+    
   </div>
   
+</div>
 
-  <section><h2>The problem</h2><p>Access to hundreds of engineering teams&#39; resources was managed by hand, with no self-service way for people to request access and no consistent, defensible way to decide who should approve each request. Doing it manually across the whole org was slow, error-prone, and left no audit trail.
-</p></section>
-  <section><h2>What I built</h2><p>An on-demand command-line tool that reads live state from three read-only sources (team &amp; membership data, an HR org-chart export, and the identity provider), computes the desired access model, and reconciles only the difference into the access-governance platform — never blindly overwriting. It&#39;s dry-run by default: it prints the full planned change set and writes nothing unless an explicit &quot;apply&quot; flag is passed. Approvers are chosen by a two-phase algorithm driven by HR management-level titles — prefer the most senior in-band team members, otherwise climb the reporting chain to the nearest qualifying manager. Every write is logged to an audit record, and anything ambiguous is flagged for a human rather than guessed.
-</p></section>
-  <section><h2>Impact</h2><p>Rolled out to over a hundred teams in production. Re-runs are idempotent — a team already in sync reports &quot;no changes&quot; — and every run produces a full diff / drift report. Replaced manual, ad-hoc approver assignment with a repeatable, previewable, fully audited process; nothing reaches production without a human confirming the diff first.
-</p></section>
-  <section><h2>My role</h2><p>Sole designer and builder: live-API discovery, the identity-join design, the approver-selection algorithm, the idempotent reconcile/dry-run engine, and the safe apply path with audit logging.
-</p></section>
-
-  
 
   
 </article>
 </main>
 
     <footer class="site-footer">
-      <p>Built locally with Eleventy. Published deliberately.</p>
+      <p>Built with Eleventy · <a href="https://github.com/m-lara95/portfolio" rel="noopener">source</a></p>
     </footer>
+
+    <!-- Peeking robot: hidden off-screen, pops up briefly on tab switch -->
+    <div class="robot-popup" aria-hidden="true">
+      <div class="robot-bubble"></div>
+      <svg class="robot" viewBox="0 0 64 68">
+        <line class="antenna-stem" x1="32" y1="4" x2="32" y2="14" />
+        <circle class="antenna" cx="32" cy="5" r="3.4" />
+        <rect class="head" x="10" y="14" width="44" height="36" rx="12" />
+        <rect class="bolt" x="5" y="26" width="5" height="12" rx="2.5" />
+        <rect class="bolt" x="54" y="26" width="5" height="12" rx="2.5" />
+        <circle class="eye" cx="24" cy="30" r="4.2" />
+        <circle class="eye" cx="40" cy="30" r="4.2" />
+        <rect class="mouth" x="21" y="40" width="22" height="5" rx="2.5" />
+        <rect class="neck" x="28" y="50" width="8" height="5" rx="2" />
+        <rect class="body" x="16" y="55" width="32" height="10" rx="5" />
+      </svg>
+    </div>
+
+    <script src="/portfolio/js/tabs.js" defer></script>
   </body>
 </html>

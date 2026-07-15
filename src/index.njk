@@ -1,26 +1,41 @@
 ---
 layout: base.njk
 ---
+{% from "entry.njk" import entry %}
+
 <section class="intro">
-  <h1>My projects</h1>
-  <p>A running record of things I've built — each with a quick status and an honest summary.</p>
+  <p class="hi">Hi! <span class="wave">👋</span></p>
+  <p class="blurb">I build small, practical tools and automations that take the friction out of everyday work. Here's a selection of things I've made.</p>
 </section>
 
-<ul class="project-list">
+<div class="portfolio">
+  <div class="tabs" role="tablist" aria-label="Projects">
+    {% for p in collections.projects %}
+    <button
+      class="tab{% if loop.first %} active{% endif %}"
+      role="tab"
+      id="tab-{{ loop.index }}"
+      aria-controls="panel-{{ loop.index }}"
+      data-target="panel-{{ loop.index }}"
+      aria-selected="{% if loop.first %}true{% else %}false{% endif %}"
+      {% if not loop.first %}tabindex="-1"{% endif %}
+    >
+      <span class="tab-dot status-dot-{{ p.data.status | lower | replace(' ', '-') }}"></span>
+      {{ p.data.title }}
+    </button>
+    {% endfor %}
+  </div>
+
   {% for p in collections.projects %}
-  <li class="card">
-    <a href="{{ p.url | url }}">
-      <span class="status status-{{ p.data.status | lower | replace(' ', '-') }}">{{ p.data.status }}</span>
-      <h2>{{ p.data.title }}</h2>
-      <p class="oneliner">{{ p.data.oneliner }}</p>
-      {% if p.data.tech %}
-      <div class="tags">
-        {% for t in p.data.tech %}<span class="tag">{{ t }}</span>{% endfor %}
-      </div>
-      {% endif %}
-    </a>
-  </li>
+  <section
+    class="panel{% if loop.first %} active{% endif %}"
+    id="panel-{{ loop.index }}"
+    role="tabpanel"
+    aria-labelledby="tab-{{ loop.index }}"
+  >
+    {{ entry(p.data) }}
+  </section>
   {% else %}
-  <li class="empty">No projects yet — add one with the <code>/portfolio</code> skill.</li>
+  <p class="empty">No projects yet — add one with the <code>/portfolio</code> skill.</p>
   {% endfor %}
-</ul>
+</div>

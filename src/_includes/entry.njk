@@ -1,0 +1,29 @@
+{% macro entry(p) %}
+<div class="entry">
+  <div class="entry-head">
+    <span class="status status-{{ p.status | lower | replace(' ', '-') }}">{{ p.status }}</span>
+    <h2 class="entry-title">{{ p.title }}</h2>
+    <p class="oneliner">{{ p.oneliner }}</p>
+    {% if p.tech %}
+    <div class="tags">
+      {% for t in p.tech %}<span class="tag">{{ t }}</span>{% endfor %}
+    </div>
+    {% endif %}
+  </div>
+
+  {% if p.problem or p.built or p.impact %}
+  <ol class="stepper">
+    {% if p.problem %}<li class="step"><h3>The problem</h3><p>{{ p.problem }}</p></li>{% endif %}
+    {% if p.built %}<li class="step"><h3>What I built</h3><p>{{ p.built }}</p></li>{% endif %}
+    {% if p.impact %}<li class="step"><h3>Impact</h3><p>{{ p.impact }}</p></li>{% endif %}
+  </ol>
+  {% endif %}
+
+  {% if p.role or p.link %}
+  <div class="entry-meta">
+    {% if p.role %}<div class="meta-row"><span class="meta-label">My role</span><span>{{ p.role }}</span></div>{% endif %}
+    {% if p.link %}<div class="meta-row"><span class="meta-label">Link</span><a href="{{ p.link }}" rel="noopener">{{ p.link }}</a></div>{% endif %}
+  </div>
+  {% endif %}
+</div>
+{% endmacro %}

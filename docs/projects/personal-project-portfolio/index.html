@@ -8,42 +8,95 @@
   </head>
   <body>
     <header class="site-header">
-      <a class="site-title" href="/portfolio/">✦ Project Portfolio</a>
-      <p class="site-tagline">Things I've built — what they did, and how.</p>
+      <div class="brand">
+        <svg class="robot" viewBox="0 0 64 68" aria-hidden="true">
+          <!-- antenna -->
+          <line class="antenna-stem" x1="32" y1="4" x2="32" y2="14" />
+          <circle class="antenna" cx="32" cy="5" r="3.4" />
+          <!-- head -->
+          <rect class="head" x="10" y="14" width="44" height="36" rx="12" />
+          <!-- ears / bolts -->
+          <rect class="bolt" x="5" y="26" width="5" height="12" rx="2.5" />
+          <rect class="bolt" x="54" y="26" width="5" height="12" rx="2.5" />
+          <!-- eyes -->
+          <circle class="eye" cx="24" cy="30" r="4.2" />
+          <circle class="eye" cx="40" cy="30" r="4.2" />
+          <!-- mouth grille -->
+          <rect class="mouth" x="21" y="40" width="22" height="5" rx="2.5" />
+          <!-- neck + body hint -->
+          <rect class="neck" x="28" y="50" width="8" height="5" rx="2" />
+          <rect class="body" x="16" y="55" width="32" height="10" rx="5" />
+        </svg>
+        <div class="brand-text">
+          <a class="site-title" href="/portfolio/">Marco Lara<span class="title-dot">.</span></a>
+          <p class="site-tagline">Projects &amp; things I've built</p>
+        </div>
+      </div>
     </header>
 
-    <main><article class="project">
+    <main>
+<article class="project">
   <a class="back" href="/portfolio/">← All projects</a>
 
-  <div class="project-head">
+  
+<div class="entry">
+  <div class="entry-head">
     <span class="status status-in-progress">In progress</span>
-    <h1>Personal project portfolio site</h1>
+    <h2 class="entry-title">Personal project portfolio site</h2>
     <p class="oneliner">A static portfolio site with an on-demand authoring tool that turns each project&#39;s notes into a genericized, approval-gated entry.</p>
+    
+    <div class="tags">
+      <span class="tag">Eleventy (static-site generator)</span><span class="tag">Nunjucks templates</span><span class="tag">Markdown</span><span class="tag">Node.js</span><span class="tag">Claude Code skill (SKILL.md)</span><span class="tag">Git / GitHub Pages</span>
+    </div>
+    
   </div>
 
   
-  <div class="tags">
-    <span class="tag">Eleventy (static-site generator)</span><span class="tag">Nunjucks templates</span><span class="tag">Markdown</span><span class="tag">Node.js</span><span class="tag">Claude Code skill (SKILL.md)</span><span class="tag">Git / GitHub Pages</span>
+  <ol class="stepper">
+    <li class="step"><h3>The problem</h3><p>I needed one place to track projects for two audiences at once — a quick status for manager updates and a polished impact summary for a resume/interview — without risking leaking work details. Ad-hoc write-ups were inconsistent and easy to over-share in.
+</p></li>
+    <li class="step"><h3>What I built</h3><p>A local-first static site fed by a two-layer content model — a public genericized entry plus a private, git-ignored learning log — authored by a custom tool that drafts both, flags anything identifying, waits for my approval, and runs a deterministic &quot;never-publish&quot; safety scan before anything goes live.
+</p></li>
+    <li class="step"><h3>Impact</h3><p>In progress — the site builds and previews locally, and the authoring tool and safety scan both work; publishing to free hosting is the next milestone.
+</p></li>
+  </ol>
+  
+
+  
+  <div class="entry-meta">
+    <div class="meta-row"><span class="meta-label">My role</span><span>Designed and built the whole thing end to end — the site, the two-layer content model, the authoring tool, and the safety scan.
+</span></div>
+    
   </div>
   
+</div>
 
-  <section><h2>The problem</h2><p>I needed one place to track projects for two audiences at once — a quick status for manager updates and a polished impact summary for a resume/interview — without risking leaking work details. Ad-hoc write-ups were inconsistent and easy to over-share in.
-</p></section>
-  <section><h2>What I built</h2><p>A local-first static site fed by a two-layer content model — a public genericized entry plus a private, git-ignored learning log — authored by a custom tool that drafts both, flags anything identifying, waits for my approval, and runs a deterministic &quot;never-publish&quot; safety scan before anything goes live.
-</p></section>
-  <section><h2>Impact</h2><p>In progress — the site builds and previews locally, and the authoring tool and safety scan both work; publishing to free hosting is the next milestone.
-</p></section>
-  <section><h2>My role</h2><p>Designed and built the whole thing end to end — the site, the two-layer content model, the authoring tool, and the safety scan.
-</p></section>
-
-  
 
   
 </article>
 </main>
 
     <footer class="site-footer">
-      <p>Built locally with Eleventy. Published deliberately.</p>
+      <p>Built with Eleventy · <a href="https://github.com/m-lara95/portfolio" rel="noopener">source</a></p>
     </footer>
+
+    <!-- Peeking robot: hidden off-screen, pops up briefly on tab switch -->
+    <div class="robot-popup" aria-hidden="true">
+      <div class="robot-bubble"></div>
+      <svg class="robot" viewBox="0 0 64 68">
+        <line class="antenna-stem" x1="32" y1="4" x2="32" y2="14" />
+        <circle class="antenna" cx="32" cy="5" r="3.4" />
+        <rect class="head" x="10" y="14" width="44" height="36" rx="12" />
+        <rect class="bolt" x="5" y="26" width="5" height="12" rx="2.5" />
+        <rect class="bolt" x="54" y="26" width="5" height="12" rx="2.5" />
+        <circle class="eye" cx="24" cy="30" r="4.2" />
+        <circle class="eye" cx="40" cy="30" r="4.2" />
+        <rect class="mouth" x="21" y="40" width="22" height="5" rx="2.5" />
+        <rect class="neck" x="28" y="50" width="8" height="5" rx="2" />
+        <rect class="body" x="16" y="55" width="32" height="10" rx="5" />
+      </svg>
+    </div>
+
+    <script src="/portfolio/js/tabs.js" defer></script>
   </body>
 </html>
