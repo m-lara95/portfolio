@@ -113,6 +113,10 @@ my personal glossary.)_
   (pre-commit hooks run) → push (Pages redeploys from `main` /docs).
   **Pending / optional:** GitHub Actions CI pinned to SHAs (build + scans on PRs) was deferred —
   the branch-deploy from `docs/` works without it. Add more project entries via `/portfolio`.
+  The `/portfolio` skill is now version-controlled at `skill/SKILL.md` (with a `__PORTFOLIO_REPO__`
+  placeholder) and installed per-machine via `node scripts/install-skill.mjs` — so it can be
+  pulled down and used on other computers. Multi-machine: `git pull` before working and push after,
+  since both machines share this one repo.
 
 ### Build checklist
 
