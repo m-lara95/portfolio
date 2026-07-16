@@ -4,12 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>GitHub Team Access-Request Sync · Project Portfolio</title>
+    <link rel="icon" href="/portfolio/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/portfolio/styles.css" />
   </head>
   <body>
     <header class="site-header">
       <div class="brand">
-        <svg class="robot" viewBox="0 0 64 68" aria-hidden="true">
+        <svg id="header-robot" class="robot robot-boopable" viewBox="0 0 64 68" role="img" aria-label="Robot mascot — click to boop">
           <!-- antenna -->
           <line class="antenna-stem" x1="32" y1="4" x2="32" y2="14" />
           <circle class="antenna" cx="32" cy="5" r="3.4" />
@@ -19,8 +20,10 @@
           <rect class="bolt" x="5" y="26" width="5" height="12" rx="2.5" />
           <rect class="bolt" x="54" y="26" width="5" height="12" rx="2.5" />
           <!-- eyes -->
-          <circle class="eye" cx="24" cy="30" r="4.2" />
-          <circle class="eye" cx="40" cy="30" r="4.2" />
+          <g class="eyes">
+            <circle class="eye" cx="24" cy="30" r="4.2" />
+            <circle class="eye" cx="40" cy="30" r="4.2" />
+          </g>
           <!-- mouth grille -->
           <rect class="mouth" x="21" y="40" width="22" height="5" rx="2.5" />
           <!-- neck + body hint -->
@@ -79,6 +82,28 @@
     <footer class="site-footer">
       <p>Built with Eleventy · <a href="https://github.com/m-lara95/portfolio" rel="noopener">source</a></p>
     </footer>
+
+    <!-- Fixed chat-bubble launcher for the mini-game -->
+    <button type="button" class="game-launch" id="game-open">🎁 click here for a surprise</button>
+
+    <!-- Mini-game: BOT-MUNCHER -->
+    <div class="game-overlay" id="game" hidden data-sprite="/portfolio/robot-sprite.svg">
+      <div class="game-panel" role="dialog" aria-modal="true" aria-label="Mini-game: Boop the Bot">
+        <div class="game-head">
+          <span class="game-title">🤖 BOT-MUNCHER</span>
+          <button type="button" class="game-close" id="game-close" aria-label="Close game">✕</button>
+        </div>
+        <div class="game-hud">
+          <span>SCORE <b id="game-score">0</b></span>
+          <span>LIVES <b id="game-lives">3</b></span>
+          <span>BEST <b id="game-best">0</b></span>
+        </div>
+        <div class="game-area" id="game-area">
+          <button type="button" class="game-start" id="game-start">PRESS START</button>
+        </div>
+        <p class="game-hint">Arrow keys / WASD — eat all the dots, dodge the bugs!</p>
+      </div>
+    </div>
 
     <!-- Peeking robot: hidden off-screen, pops up briefly on tab switch -->
     <div class="robot-popup" aria-hidden="true">

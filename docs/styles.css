@@ -63,6 +63,8 @@ main, .site-header, .site-footer { max-width: var(--wrap); margin: 0 auto; paddi
 @media (prefers-reduced-motion: reduce) {
   .robot .eye, .robot .antenna, .wave { animation: none; }
   .js-reveal .step { opacity: 1 !important; transform: none !important; transition: none; }
+  .robot.boop, body.party #header-robot, body.party .robot-popup .robot { animation: none; }
+  .game-launch { animation: none; }
 }
 
 .site-title { font-size: 1.6rem; font-weight: 900; text-decoration: none; letter-spacing: -0.02em; color: var(--blue); }
@@ -177,6 +179,62 @@ main, .site-header, .site-footer { max-width: var(--wrap); margin: 0 auto; paddi
   opacity: 0; transform: translateY(6px) scale(0.9); transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .robot-popup.peek .robot-bubble { opacity: 1; transform: none; }
+
+/* Boop */
+.robot-boopable { cursor: pointer; }
+.robot.boop { animation: boop 0.5s ease; }
+@keyframes boop {
+  0% { transform: rotate(0) scale(1); }
+  25% { transform: rotate(-12deg) scale(1.08); }
+  55% { transform: rotate(10deg) scale(1.08); }
+  100% { transform: rotate(0) scale(1); }
+}
+
+/* Konami party mode */
+@keyframes dance { 0%, 100% { transform: translateY(0) rotate(-7deg); } 50% { transform: translateY(-6px) rotate(7deg); } }
+body.party #header-robot { animation: dance 0.5s ease-in-out infinite; }
+body.party .robot-popup { transform: translateY(7%); }
+body.party .robot-popup .robot { animation: dance 0.5s ease-in-out infinite; }
+
+/* Confetti pixels */
+.pixel { position: fixed; top: -14px; width: 10px; height: 10px; z-index: 60; pointer-events: none; border: 1.5px solid var(--ink); border-radius: 2px; animation: fall linear forwards; }
+@keyframes fall { to { transform: translateY(106vh) rotate(540deg); } }
+
+/* Fixed chat-bubble launcher for the mini-game */
+.game-launch {
+  position: fixed; left: 20px; bottom: 20px; z-index: 55;
+  font-family: var(--mono); font-weight: 700; font-size: 0.82rem; color: var(--ink);
+  background: #fff; border: 2.5px solid var(--ink); border-radius: 14px;
+  padding: 0.55rem 0.85rem; cursor: pointer; box-shadow: var(--shadow-sm);
+  animation: launchBob 2.6s ease-in-out infinite;
+}
+.game-launch::after {
+  content: ""; position: absolute; left: 20px; bottom: -8px;
+  width: 12px; height: 12px; background: #fff;
+  border-right: 2.5px solid var(--ink); border-bottom: 2.5px solid var(--ink);
+  transform: rotate(45deg);
+}
+.game-launch:hover { transform: translate(-1px, -2px); box-shadow: 4px 4px 0 var(--ink); animation: none; }
+@keyframes launchBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+
+/* Mini-game */
+.game-overlay { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 1rem; background: rgba(28, 26, 23, 0.55); backdrop-filter: blur(2px); }
+.game-overlay[hidden] { display: none; }
+.game-panel { width: min(540px, 100%); background: var(--panel); border: 3px solid var(--ink); border-radius: var(--radius); box-shadow: 8px 8px 0 var(--ink); padding: 1.2rem 1.3rem 1.4rem; }
+.game-head { display: flex; align-items: center; justify-content: space-between; }
+.game-title { font-family: var(--mono); font-weight: 800; font-size: 1.05rem; }
+.game-close { font: inherit; font-weight: 800; line-height: 1; background: var(--red); color: #fff; border: 2.5px solid var(--ink); border-radius: 8px; width: 30px; height: 30px; cursor: pointer; box-shadow: var(--shadow-sm); }
+.game-close:hover { transform: translate(-1px, -1px); }
+.game-hud { display: flex; gap: 1rem; font-family: var(--mono); font-size: 0.8rem; color: var(--muted); margin: 0.9rem 0; }
+.game-hud b { color: var(--ink); font-size: 1rem; }
+.game-area {
+  position: relative; min-height: 200px; border: 2.5px solid var(--ink); border-radius: 12px;
+  background: #12141b; overflow: hidden; display: grid; place-items: center; padding: 6px;
+}
+.game-start { z-index: 2; font-family: var(--mono); font-weight: 800; color: #fff; background: var(--blue); border: 2.5px solid var(--ink); border-radius: 10px; padding: 0.6rem 1.1rem; cursor: pointer; box-shadow: var(--shadow-sm); }
+.game-start:hover { box-shadow: 4px 4px 0 var(--ink); }
+.game-canvas { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+.game-hint { font-size: 0.82rem; color: var(--muted); margin: 0.9rem 0 0; text-align: center; }
 
 /* Individual project page */
 .back { display: inline-block; margin-bottom: 1.2rem; color: var(--ink); text-decoration: none; font-family: var(--mono); font-weight: 700; font-size: 0.85rem; }
