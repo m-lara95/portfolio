@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Project Portfolio</title>
+    <title>New-Hire Account Auto-Provisioning · Project Portfolio</title>
     <link rel="icon" href="/portfolio/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/portfolio/styles.css" />
   </head>
@@ -38,105 +38,10 @@
     </header>
 
     <main>
-
-<section class="intro">
-  <p class="hi">Hi! <span class="wave">👋</span></p>
-  <p class="blurb">Sometimes I build things and sometimes they work — feel free to take a look!</p>
-</section>
-
-<div class="portfolio">
-  <div class="tabs" role="tablist" aria-label="Projects">
-    
-    <button
-      class="tab active"
-      role="tab"
-      id="tab-1"
-      aria-controls="panel-1"
-      data-target="panel-1"
-      aria-selected="true"
-      
-    >
-      <span class="tab-dot status-dot-shipped"></span>
-      GitHub Team Access-Request Sync
-    </button>
-    
-    <button
-      class="tab"
-      role="tab"
-      id="tab-2"
-      aria-controls="panel-2"
-      data-target="panel-2"
-      aria-selected="false"
-      tabindex="-1"
-    >
-      <span class="tab-dot status-dot-shipped"></span>
-      New-Hire Account Auto-Provisioning
-    </button>
-    
-    <button
-      class="tab"
-      role="tab"
-      id="tab-3"
-      aria-controls="panel-3"
-      data-target="panel-3"
-      aria-selected="false"
-      tabindex="-1"
-    >
-      <span class="tab-dot status-dot-in-progress"></span>
-      Personal project portfolio site
-    </button>
-    
-  </div>
+<article class="project">
+  <a class="back" href="/portfolio/">← All projects</a>
 
   
-  <section
-    class="panel active"
-    id="panel-1"
-    role="tabpanel"
-    aria-labelledby="tab-1"
-  >
-    
-<div class="entry">
-  <div class="entry-head">
-    <span class="status status-shipped">Shipped</span>
-    <h2 class="entry-title">GitHub Team Access-Request Sync</h2>
-    <p class="oneliner">Syncs every team in an org into an access-governance platform as self-service requestable permissions, with approvers auto-selected from HR org-chart data.</p>
-    
-    <div class="tags">
-      <span class="tag">Python 3.12</span><span class="tag">httpx (HTTP client)</span><span class="tag">GraphQL + REST APIs</span><span class="tag">CSV / HR-data parsing</span><span class="tag">Identity mapping (login → email → person)</span><span class="tag">Idempotent reconciliation</span><span class="tag">Dry-run / apply CLI</span><span class="tag">Hash-pinned dependencies + CI</span>
-    </div>
-    
-  </div>
-
-  
-  <ol class="stepper">
-    <li class="step"><h3>The problem</h3><p>Access to hundreds of engineering teams&#39; resources was managed by hand, with no self-service way for people to request access and no consistent, defensible way to decide who should approve each request. Doing it manually across the whole org was slow, error-prone, and left no audit trail.
-</p></li>
-    <li class="step"><h3>What I built</h3><p>An on-demand command-line tool that reads live state from three read-only sources (team &amp; membership data, an HR org-chart export, and the identity provider), computes the desired access model, and reconciles only the difference into the access-governance platform — never blindly overwriting. It&#39;s dry-run by default: it prints the full planned change set and writes nothing unless an explicit &quot;apply&quot; flag is passed. Approvers are chosen by a two-phase algorithm driven by HR management-level titles — prefer the most senior in-band team members, otherwise climb the reporting chain to the nearest qualifying manager. Every write is logged to an audit record, and anything ambiguous is flagged for a human rather than guessed.
-</p></li>
-    <li class="step"><h3>Impact</h3><p>Rolled out to over a hundred teams in production. Re-runs are idempotent — a team already in sync reports &quot;no changes&quot; — and every run produces a full diff / drift report. Replaced manual, ad-hoc approver assignment with a repeatable, previewable, fully audited process; nothing reaches production without a human confirming the diff first.
-</p></li>
-  </ol>
-  
-
-  
-  <div class="entry-meta">
-    <div class="meta-row"><span class="meta-label">My role</span><span>Sole designer and builder: live-API discovery, the identity-join design, the approver-selection algorithm, the idempotent reconcile/dry-run engine, and the safe apply path with audit logging.
-</span></div>
-    
-  </div>
-  
-</div>
-
-  </section>
-  
-  <section
-    class="panel"
-    id="panel-2"
-    role="tabpanel"
-    aria-labelledby="tab-2"
-  >
-    
 <div class="entry">
   <div class="entry-head">
     <span class="status status-shipped">Shipped</span>
@@ -170,50 +75,9 @@
   
 </div>
 
-  </section>
-  
-  <section
-    class="panel"
-    id="panel-3"
-    role="tabpanel"
-    aria-labelledby="tab-3"
-  >
-    
-<div class="entry">
-  <div class="entry-head">
-    <span class="status status-in-progress">In progress</span>
-    <h2 class="entry-title">Personal project portfolio site</h2>
-    <p class="oneliner">A static portfolio site with an on-demand authoring tool that turns each project&#39;s notes into a genericized, approval-gated entry.</p>
-    
-    <div class="tags">
-      <span class="tag">Eleventy (static-site generator)</span><span class="tag">Nunjucks templates</span><span class="tag">Markdown</span><span class="tag">Node.js</span><span class="tag">Claude Code skill (SKILL.md)</span><span class="tag">Git / GitHub Pages</span>
-    </div>
-    
-  </div>
 
   
-  <ol class="stepper">
-    <li class="step"><h3>The problem</h3><p>I needed one place to track projects for two audiences at once — a quick status for manager updates and a polished impact summary for a resume/interview — without risking leaking work details. Ad-hoc write-ups were inconsistent and easy to over-share in.
-</p></li>
-    <li class="step"><h3>What I built</h3><p>A local-first static site fed by a two-layer content model — a public genericized entry plus a private, git-ignored learning log — authored by a custom tool that drafts both, flags anything identifying, waits for my approval, and runs a deterministic &quot;never-publish&quot; safety scan before anything goes live.
-</p></li>
-    <li class="step"><h3>Impact</h3><p>In progress — the site builds and previews locally, and the authoring tool and safety scan both work; publishing to free hosting is the next milestone.
-</p></li>
-  </ol>
-  
-
-  
-  <div class="entry-meta">
-    <div class="meta-row"><span class="meta-label">My role</span><span>Designed and built the whole thing end to end — the site, the two-layer content model, the authoring tool, and the safety scan.
-</span></div>
-    
-  </div>
-  
-</div>
-
-  </section>
-  
-</div>
+</article>
 </main>
 
     <footer class="site-footer">
